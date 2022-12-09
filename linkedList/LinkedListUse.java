@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class LinkedListUse {
 	
+
 	public static Node<Integer> createLinkedList() {
 		Node<Integer> n1 = new Node<>(10);
 		Node<Integer> n2 = new Node<>(20);
@@ -16,9 +17,26 @@ public class LinkedListUse {
 		return n1;
 			
 	}
+	
+	public static int length(Node<Integer> head) {
+		int count=0;
+		Node<Integer> temp= head;
+		while(temp!=null) {
+			count++;
+			temp=temp.next;
+		}
+		return count;
+	}
 	public static void print(Node<Integer> head) {
+		System.out.println("Print" + head);
+		while(head!=null) {
+		System.out.println(head.data);
+		head = head.next;
+		}
+		System.out.println();
     
 	}
+	
 	public static Node<Integer> takeInput() {
 		
 		Node<Integer> head = null;
@@ -40,11 +58,26 @@ public class LinkedListUse {
 		}
 		return head;
 	}
+	public static void increment(Node<Integer> head) {
+		head = new Node<Integer>(100);
+		head.data++;
+	}
+	
 	public static void main(String[] args) {
-		
-		
-		Node<Integer> head = takeInput();
+		Node<Integer> head = createLinkedList();
+	
 		print(head);
+		System.out.println(length(head));
+		
+//		Node<Integer> n1 = new Node<>(10);
+//	     takeInput();
+//		print(n1);
+//		System.out.println(n1);
+//		System.out.println(n1.data);
+//		System.out.println(n1.next);
+		
+//		Node<Integer> head = takeInput();
+//		print(head);
 //		System.out.println("Main" + head);
 		
 		// TODO Auto-generated method stub
