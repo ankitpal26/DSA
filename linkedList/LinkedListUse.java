@@ -28,9 +28,9 @@ public class LinkedListUse {
 		return count;
 	}
 	public static void print(Node<Integer> head) {
-		System.out.println("Print" + head);
+//		System.out.println("Print" + head);
 		while(head!=null) {
-		System.out.println(head.data);
+		System.out.print(head.data+" ");
 		head = head.next;
 		}
 		System.out.println();
@@ -59,15 +59,53 @@ public class LinkedListUse {
 		return head;
 	}
 	public static void increment(Node<Integer> head) {
+
 		head = new Node<Integer>(100);
 		head.data++;
 	}
+	public static Node<Integer> insert(Node<Integer> head, int data, int pos) {
+		
+		Node<Integer> newNode = new Node<Integer>(data);
+		if(pos==0) {
+			newNode.next = head;
+			return newNode;
+		}
+		int i = 0;
+		Node<Integer> temp = head;
+		while(i < pos -1) {
+			temp = temp.next;
+			i++;
+		}
+		newNode.next = temp.next;
+		temp.next = newNode;
+		return head;
+	}
+	public static Node<Integer> delete(Node<Integer> head, int pos) {
+		if(pos==0) {
+			Node<Integer> temp= head;
+			head=head.next;
+			return head;
+		}
+		int i=0;
+		Node<Integer> temp= head;
+		while(i < pos-1) {
+			temp=temp.next;
+			i++;
+		}
+		temp.next=temp.next.next;
+		return head;
+	}
 	
 	public static void main(String[] args) {
-		Node<Integer> head = createLinkedList();
-	
+		
+		Node<Integer> head = takeInput();
+	head=	delete(head, 0);
+//		head = insert(head ,80 ,3);
 		print(head);
-		System.out.println(length(head));
+		//		Node<Integer> head = createLinkedList();
+//	        
+//		print(head);
+//		System.out.println(length(head));
 		
 //		Node<Integer> n1 = new Node<>(10);
 //	     takeInput();
