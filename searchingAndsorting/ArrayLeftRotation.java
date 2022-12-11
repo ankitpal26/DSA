@@ -1,3 +1,5 @@
+package searchingAndsorting;
+
 import java.util.Scanner;
 
 public class ArrayLeftRotation{
