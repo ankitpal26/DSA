@@ -11,7 +11,8 @@ public class OneTohun {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-       printNum(100);
+       printNum(50);
+       
 	}
 
 }
