@@ -1,7 +1,7 @@
 package practice_oops;
 
 public class FractionUse {
-	public static void temp()   {
+	public static void temp() throws DivideByZeroException   {
 		Fraction f1 = new Fraction(20,30);
 		f1.print();
 		
@@ -15,7 +15,7 @@ public class FractionUse {
 		try {
 			f1.setDenominator(0);
 			i++;
-		}catch(ZeroDenominatorException e) {
+		}catch(DivideByZeroException e) {
 			System.out.println("Hey dont input 0 as denominator");
 			
 		} finally {
@@ -40,8 +40,15 @@ public class FractionUse {
 		f4.print();
 		
 	}
-	public static void main(String[] args) throws ZeroDenominatorException {
-		temp();
+	public static void main(String[] args)  {
+		Fraction f1;
+		try {
+			f1 = new Fraction(4 , 6);
+			temp();
+		} catch (DivideByZeroException e) {
+			// TODO Auto-generated catch block
+			 
+		}
 	}
 
 }
