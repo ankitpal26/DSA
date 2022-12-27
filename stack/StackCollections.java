@@ -13,7 +13,9 @@ public class StackCollections {
 		while(!stack.isEmpty()) {
 
 			System.out.println(stack.peek());
-			stack.pop();		}
+			stack.pop();	
+			
+			}
 
 	}
 
