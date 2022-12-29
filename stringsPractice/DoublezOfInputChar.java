@@ -8,23 +8,20 @@ public class DoublezOfInputChar {
 		 
       Scanner sc = new Scanner(System.in);
 //      System.out.println("Enter the  Z and O");
-      String str1=sc.nextLine();
-//      String[] words = str1.split("\\s");
+      String str=sc.nextLine();
+     String[] str1 = str.split("");
        
      
       int count=0,count1=0;
-     for(int i=0; i<str1.length(); i++) {
-    	 if(str1.charAt(i)=='Z') {
+     for(int i=0; i<str1.length; i++) {
+    	 if(str1[0].equals(str1[i])) {
     		 count++;
+    	 }else {
+    		 count1++;
     	 }
      }
      System.out.println(count);
-    	 for(int j=0; j<str1.length(); j++) {
-        	 if(str1.charAt(j)=='O') {
-        		 count1++;
-        	 }
-          }
-    	 System.out.println(count1);
+     System.out.println(count1);
     	 if(count1==2*count) {
     		System.out.println("True");
     	 }else {
