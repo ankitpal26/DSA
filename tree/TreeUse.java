@@ -5,7 +5,64 @@ import java.util.Scanner;
 import queue.QueueEmptyException;
 import queue.QueueUsingLL;
 
+
 public class TreeUse {
+	public static void preorder(TreeNode<Integer> root) {
+		if(root == null) {
+			return;
+		}
+		System.out.print(root.data + " ");
+		for (int i = 0; i < root.children.size(); i++) {
+			preorder(root.children.get(i));
+		}
+	}
+	public static void postorder(TreeNode<Integer> root) {
+		if(root == null) {
+			return;
+		}
+		for(int i = 0; i < root.children.size(); i++) {
+			postorder(root.children.get(i));
+		}
+		System.out.print(root.data + " ");
+	}
+	
+	public  static void printAtK(TreeNode<Integer> root, int k) {
+		if(k<0) {
+			return;
+		}
+		if( k == 0) {
+			System.out.println(root.data);
+			return;
+		}
+		for ( int i = 0; i < root.children.size(); i++) {
+			printAtK(root.children.get(i), k-1);;
+		}
+	}
+
+	public static int largest(TreeNode<Integer> root) {
+		if(root == null) {
+			return Integer.MIN_VALUE;
+		}
+		int ans  = root.data;
+		for(int i = 0; i < root.children.size(); i++) {
+			int childLargest = largest(root.children.get(i));
+			if(childLargest > ans) {
+				ans = childLargest;
+			}
+		}
+		return ans;
+	}
+	
+	public static int numNodes(TreeNode<Integer> root) {
+		if(root == null) {
+			return 0;
+		}
+		int count = 1;
+		for(int i=0; i<root.children.size(); i++) {
+			count += numNodes(root.children.get(i));
+		}
+		return count;
+	}
 	
 	public static TreeNode<Integer> takeInput(Scanner s){
 		int n;
@@ -34,6 +91,7 @@ public class TreeUse {
 		}
 		
 	}
+
     public static TreeNode<Integer> takeInputLevelWise(){
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter root data");
@@ -62,8 +120,16 @@ public class TreeUse {
 	}
 
 	public static void main(String[] args) {
+
 		TreeNode<Integer> root = takeInputLevelWise();
 		print(root);
+		System.out.println(largest(root));
+        System.out.println(numNodes(root));
+        preorder(root);
+        System.out.println();
+        postorder(root);
+        System.out.println();
+//		printAtK(root, 2);
 //		Scanner s = new Scanner(System.in);
 //		TreeNode<Integer> root = takeInput(s);
 //		print(root);
