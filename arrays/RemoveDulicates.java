@@ -22,10 +22,15 @@ public class RemoveDulicates {
 
 	public static void main(String[] args) {
 		int arr[]= {10,10,20,20,30,30,40,40,50,50};
+		int arr1[]= {10,10,11,11,12,12};
 		int length=arr.length;
 		length = removeDuplicateElements(arr, length);
+		length = removeDuplicateElements(arr1, length);
 		for(int i=0;i<length; i++) {
 			System.out.print(arr[i]+" ");
+		}
+		for(int i=0;i<length; i++) {
+			System.out.print(arr1[i]+" ");
 		}
 
 	}
