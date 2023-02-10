@@ -25,7 +25,7 @@ public class P10 {
 				}
 				int l=1; 
 				while(l <= i-1) {
-					System.out.print(counter);
+					System.out.print(counter--);
 					counter--;
 					l++;
 				}
