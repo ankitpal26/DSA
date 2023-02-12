@@ -16,6 +16,11 @@ public class LinkedList1 {
          while(itr.hasNext()) {
         	 System.out.println(itr.next());
          }
+         LinkedList<String> list2 = new LinkedList<String>();
+         list2.add("Sumo");
+         list2.add("Shivam");
+         list.addAll(list2);
+         System.out.println(list);
 	}
 
 }
